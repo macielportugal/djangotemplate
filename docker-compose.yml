@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  web:
+    build: build/python
+    links:
+      - db
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/project:rw
+    environment:
+      - PROJECT_NAME=mytemplate
+  db:
+    image: postgres:10.3-alpine
+    volumes:
+      - /var/lib/postgresql/data
+    ports:
+      - 3306:3306
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=django
