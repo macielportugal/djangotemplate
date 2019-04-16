@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% load i18n %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+
+    {% trans 'Confirm delete user' %}
+
+    <input type="submit" value="{% trans 'Yes' %}">
+</form>
+{% endblock content %}

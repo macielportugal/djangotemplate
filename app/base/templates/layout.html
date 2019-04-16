@@ -1,0 +1,24 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Django Template{% endblock title %}</title>
+    {% block extra_head %}{% endblock extra_head %}
+</head>
+<body>
+    {% block header %}
+    <p><a href="{% url 'password_reset' %}">{% trans 'Reset Password' %}</a></p>
+    {% if request.user.is_authenticated %}
+        <p><a href="{% url 'profile' %}">{{request.user.username|upper}}</a> | <a href="{% url 'profile-delete' %}">Profile Delete</a> | <a href="{% url 'user-logout' %}">Logout</a></p>
+    {% else %}
+        <p><a href="{% url 'login' %}">{% trans 'Login' %}</a> | <a href="{% url 'registration' %}">{% trans 'Registration' %}</a></p>
+    {% endif %}
+    {% endblock header %}
+    {% block content %}{% endblock content %}
+    {% block extra_body %}{% endblock extra_body %}
+</body>
+</html>

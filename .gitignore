@@ -103,8 +103,6 @@ venv.bak/
 
 # End of https://www.gitignore.io/api/python
 .vscode/
-storage/
-log/
-app/media/
+app/media/*
 app/db.sqlite3
 !.gitkeep

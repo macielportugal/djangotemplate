@@ -9,13 +9,11 @@ services:
     volumes:
       - .:/project:rw
     environment:
-      - PROJECT_NAME=mytemplate
+      - DJANGO_SETTINGS_MODULE=mytemplate.settings
   db:
     image: postgres:10.3-alpine
     volumes:
       - /var/lib/postgresql/data
-    ports:
-      - 3306:3306
     environment:
       - POSTGRES_PASSWORD=123456
       - POSTGRES_USER=django
